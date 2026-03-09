@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/roberto/Documents/dev/c/super_trunfo/game'
+relocations:     []
+...
