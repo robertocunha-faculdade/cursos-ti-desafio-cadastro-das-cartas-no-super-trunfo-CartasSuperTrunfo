@@ -1,5 +1,23 @@
 #include <stdio.h>
 
+float calcular_pib_per_capita(float pib, int populacao)
+{
+    if (populacao == 0)
+    {
+        return 0.0; // Evitar divisão por zero
+    }
+    return pib * 1000000000 / populacao; // Convertendo PIB de bilhões para reais
+}
+
+float calcular_densidade_populacional(int populacao, float area)
+{
+    if (area == 0)
+    {
+        return 0.0; // Evitar divisão por zero
+    }
+    return populacao / area; // Densidade populacional em habitantes por km²
+}
+
 int main()
 {
     // Informação da primeira carta
@@ -40,6 +58,13 @@ int main()
     printf("PIB: R$ %.2f bilhões\n", carta_1_pib);
     printf("Número de Pontos Turísticos: %d\n", carta_1_numero_pontos_turisticos);
 
+    // Calcular e exibir PIB per capita e densidade populacional da primeira carta
+    float carta_1_pib_per_capita = calcular_pib_per_capita(carta_1_pib, carta_1_populacao);
+    float carta_1_densidade_populacional = calcular_densidade_populacional(carta_1_populacao, carta_1_area);
+
+    printf("PIB per capita: R$ %.2f\n", carta_1_pib_per_capita);
+    printf("Densidade Populacional: %.2f habitantes/km²\n", carta_1_densidade_populacional);
+
     // Informações da segunda carta
     char carta_2_estado;
     char carta_2_codigo_da_carta[20];
@@ -77,6 +102,13 @@ int main()
     printf("Área: %.2f km²\n", carta_2_area);
     printf("PIB: R$ %.2f bilhões\n", carta_2_pib);
     printf("Número de Pontos Turísticos: %d\n", carta_2_numero_pontos_turisticos);
+
+    // Calcular e exibir PIB per capita e densidade populacional da segunda carta
+    float carta_2_pib_per_capita = calcular_pib_per_capita(carta_2_pib, carta_2_populacao);
+    float carta_2_densidade_populacional = calcular_densidade_populacional(carta_2_populacao, carta_2_area);
+
+    printf("PIB per capita: R$ %.2f\n", carta_2_pib_per_capita);
+    printf("Densidade Populacional: %.2f habitantes/km²\n", carta_2_densidade_populacional);
 
     return 0;
 }
